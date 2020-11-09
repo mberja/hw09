@@ -1,8 +1,8 @@
 [
     {
         "title": "2U",
-        "artist": ["David Guetta","Justin Bieber"],
-        "genre": ["dance", "electric"],
+        "artist": ["David Guetta ","Justin Bieber"],
+        "genre": ["dance ", "electric"],
         "year_released": 2017
     },
     
@@ -51,14 +51,14 @@
     {
         "title": "so far away",
         "artist": "SUGA",
-        "genre": ["hip hop", "korean pop"],
+        "genre": ["hip hop ", "korean pop"],
         "year_released": 2017
     },
     
     {
         "title": "If You",
         "artist": "BIGBANG",
-        "genre": ["ballad", "korean pop"],
+        "genre": ["ballad ", "korean pop"],
         "year_released": 2016
     },
     
