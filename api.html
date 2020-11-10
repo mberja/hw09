@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<title>Calendar Holidays</title>
+	<meta charset="utf-8"/>
+	<script>
+        /// https://calendarific.com/api-documentation
+		function getWeather() {
+			/* Step 1: Make instance of request object...
+			...to make HTTP request after page is loaded*/
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+ 
+			// Step 2: Set the URL for the AJAX request to be the JSON file
+            
+            request.open("GET", "https://calendarific.com/api/v2/holidays?api_key=0f4e1fb6ff35bd483471650b0ccb55f739f18eac&country=US&year=2019", true)
+
+			console.log("2 - opened request file");
+ 
+			// Step 3: set up event handler/callback
+
+			request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+ 
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: wait for done + success
+					console.log("5 - response received");
+					result = request.responseText;
+					alert("hoii" + result);
+					holiday = JSON.parse(result);
+                    
+                    for (i = 0; i < 20; i++) {
+                        
+                        document.getElementById("data").innerHTML += "Holiday Name: " + holiday["response"]["holidays"][i]["name"]; 
+                    
+                        document.getElementById("data").innerHTML += "<br> " + holiday["response"]["holidays"][i]["description"] + "<br>"; 
+                        
+                        document.getElementById("data").innerHTML += "<br>";
+	
+                    }
+					
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+		}
+	</script>
+</head>
+
+
+<body onload="getWeather()">
+
+	<h1>Calendar Holidays</h1>
+    <p> This API generates 20 calendar holidays!</p>
+	<div id="data"></div>
+</body>
+</html>
