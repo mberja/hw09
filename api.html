@@ -30,9 +30,9 @@
 					//alert("hoii" + result);
 					holiday = JSON.parse(result);
                     
-                    for (i = 0; i < 20; i++) {
+                    for (i = 0; i < 14; i++) {
                         
-                        document.getElementById("data").innerHTML += "Holiday Name: " + holiday["response"]["holidays"][i]["name"]; 
+                        document.getElementById("data").innerHTML += "Holiday Name: " + "<b>" +  holiday["response"]["holidays"][i]["name"] + "<b>"; 
                     
                         document.getElementById("data").innerHTML += "<br> " + holiday["response"]["holidays"][i]["description"] + "<br>"; 
                         
@@ -63,6 +63,7 @@
     <p> Found in https://calendarific.com/</p>
     <p> For my options, I used holidays, country, and year. The country is USA and the year is 2019.</p>
     <p> Two applications in which this API would be helpful is when planning a yearly calendar and learning about new holidays that a person might not know about.</p>
+    <hr><br>
 	<div id="data"></div>
 </body>
 </html>
